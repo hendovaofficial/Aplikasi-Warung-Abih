@@ -31,14 +31,8 @@ jobs:
           flutter create . --platforms=android --org com.warungabih --project-name warung_abih
           sed -i 's/com\.warungabih\.warung_abih/com.warungabih.app/g' android/app/build.gradle* || true
           rm -rf android/app/src/main/kotlin/com/warungabih/warung_abih
-          - name: Buat file Android
-        run: |
-          flutter create . --platforms=android --org com.warungabih --project-name warung_abih
-          sed -i 's/com\.warungabih\.warung_abih/com.warungabih.app/g' android/app/build.gradle* || true
-          rm -rf android/app/src/main/kotlin/com/warungabih/warung_abih
           sed -i '/org.jetbrains.kotlin.android/s/version "[0-9.]*"/version "2.3.0"/' android/settings.gradle.kts
           sed -i 's/jvmTarget = JavaVersion.VERSION_11.toString()/jvmTarget.set(org.jetbrains.kotlin.gradle.dsl.JvmTarget.JVM_11)/' android/app/build.gradle.kts
-          sed -i '/org.jetbrains.kotlin.android/s/version "[0-9.]*"/version "2.3.0"/' android/settings.gradle.kts
 
       - name: Firebase
         run: |
